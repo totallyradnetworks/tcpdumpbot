@@ -13,6 +13,10 @@ app.config['SECRET_KEY'] = 'tcpdumpbotsecretkey'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
+@app.before_request
+def before_request_func():
+    tcpdump_flask.tcpdump_test()
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if tcpdump_flask.tcpdump_is_running() == False:
@@ -70,3 +74,6 @@ class tcpdumpform(FlaskForm):
 
 class tcpdumpformstop(FlaskForm):
     submit = SubmitField('Stop TCPDUMPBOT')
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')

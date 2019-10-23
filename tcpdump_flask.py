@@ -1,6 +1,7 @@
 import os
 import subprocess
 from collections import OrderedDict
+import re
 
 dump_pid = ''
 tcpdump_running = False
@@ -111,3 +112,15 @@ def kill_process():
     #subprocess.check_call(['sudo', 'kill', str(dump_pid)])
     tcpdump_running = False
     print('Process %s Killed.' % dump_pid)
+
+def tcpdump_test():
+    pattern = '[tcpdump] <defunct>'
+    x = os.system("ps -fA | grep tcpdump")
+    y = str(x)
+    if re.search(pattern, y):
+        print("tcpdump is not running")
+    else:
+        print("tcpdump is running")
+
+
+

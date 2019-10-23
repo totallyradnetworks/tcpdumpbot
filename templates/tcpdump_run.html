@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}TCPDUMP BOT{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>TCPDUMP is currently running.</h1>
+    {% block page_content %}
+    <a href="tcpdump_stop.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Stop TCPDUMP</a>
+    {% endblock %}
+</div>
+{% endblock %}

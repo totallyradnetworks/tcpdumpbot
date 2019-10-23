@@ -1,3 +1,4 @@
 # A pythonic way of automating and visualizing tcpdump on a raspberry pi.
 
 1. Current issue that I'm running into is that the reload button of the browser is the same as pressing the start or stop tcpdump button.  I need a way of testing if tcpdump is running before loading the page.  I'm trying to use before\_request to do this.  I've added a before\_request decorator function.
+2. My before\_request function is running 'ps -fA | grep tcpdump' which will output processes that include tcpdump in them.  I'm wanting to regex through this output and search for [tcpdump] <defunct> which is what will be output if tcpdump has been killed by the process.  The problem I'm having is that I'm haven't found a way to save the output to a variable so that I can then use regex to try to find a match.  When running the function is only outputs the result of 'ps -fA' command and the variable that I have set it equal to is of type(int).

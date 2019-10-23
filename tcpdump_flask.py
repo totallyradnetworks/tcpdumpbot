@@ -114,13 +114,16 @@ def kill_process():
     print('Process %s Killed.' % dump_pid)
 
 def tcpdump_test():
-    pattern = '[tcpdump] <defunct>'
-    x = os.system("ps -fA | grep tcpdump")
-    y = str(x)
-    if re.search(pattern, y):
-        print("tcpdump is not running")
-    else:
-        print("tcpdump is running")
+    #pattern = '[tcpdump] <defunct>'
+    #x = os.system("ps -fA | grep tcpdump")
+    #y = str(x)
+    #print(type(x))
+    #print(y)
+    #if re.search(pattern, y):
+    #    print("tcpdump is not running")
+    #else:
+    #    print("tcpdump is running")
+    print('tcpdump test has been executed')
 
 
 
